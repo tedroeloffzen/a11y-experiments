@@ -1,0 +1,33 @@
+<div class="ui-field">
+  <label class="ui-field__label" [for]="id">
+    {{ label() }}
+    @if (state().required()) {
+      <span class="ui-field__required" aria-hidden="true">*</span>
+    }
+  </label>
+
+  @if (hint()) {
+    <p class="ui-field__hint" [id]="hintId">{{ hint() }}</p>
+  }
+
+  <input
+    class="ui-field__input"
+    [id]="id"
+    [type]="type()"
+    [formField]="field()"
+    [attr.autocomplete]="autocomplete() ?? null"
+    [attr.aria-invalid]="showErrors() ? 'true' : null"
+    [attr.aria-describedby]="describedBy()"
+  />
+
+  @if (showErrors()) {
+    <ul class="ui-field__errors" [id]="errorId">
+      @for (error of state().errors(); track error.kind) {
+        <li>
+          <span class="ui-field__error-icon" aria-hidden="true">!</span>
+          {{ message(error) }}
+        </li>
+      }
+    </ul>
+  }
+</div>

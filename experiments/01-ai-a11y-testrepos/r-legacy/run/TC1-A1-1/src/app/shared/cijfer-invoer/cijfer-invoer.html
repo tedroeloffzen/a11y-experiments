@@ -1,0 +1,51 @@
+<h2>Cijfer invoeren</h2>
+
+<form [formGroup]="form" (ngSubmit)="opslaan()">
+  <div class="form-row">
+    <span>Leerling</span>
+    <app-dropdown
+      [options]="leerlingOpties"
+      placeholder="Kies een leerling"
+      [value]="form.controls.leerlingId.value"
+      (valueChange)="form.controls.leerlingId.setValue($event ?? '')"
+    />
+    @if (form.controls.leerlingId.touched && form.controls.leerlingId.hasError('required')) {
+      <span class="error">Leerling is verplicht</span>
+    }
+  </div>
+
+  <div class="form-row">
+    <span>Vak</span>
+    <app-dropdown
+      [options]="vakOpties"
+      placeholder="Kies een vak"
+      [value]="form.controls.vak.value"
+      (valueChange)="form.controls.vak.setValue($event ?? '')"
+    />
+    @if (form.controls.vak.touched && form.controls.vak.hasError('required')) {
+      <span class="error">Vak is verplicht</span>
+    }
+  </div>
+
+  <div class="form-row">
+    <label for="cijfer">Cijfer</label>
+    <input id="cijfer" type="text" formControlName="cijfer" />
+    @if (form.controls.cijfer.touched && form.controls.cijfer.hasError('required')) {
+      <span class="error">Cijfer is verplicht</span>
+    }
+    @if (form.controls.cijfer.touched && form.controls.cijfer.hasError('cijfer')) {
+      <span class="error">Ongeldig cijfer (1 t/m 10, maximaal één decimaal)</span>
+    }
+  </div>
+
+  <div class="form-row">
+    <label for="opmerking">Opmerking</label>
+    <textarea id="opmerking" formControlName="opmerking"></textarea>
+  </div>
+
+  <button class="btn" type="submit">Opslaan</button>
+
+  @if (bevestiging(); as tekst) {
+    <p>{{ tekst }}</p>
+  }
+</form>

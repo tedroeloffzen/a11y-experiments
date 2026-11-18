@@ -1,0 +1,76 @@
+@use './styles/variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  font-size: 14px;
+  color: $color-text;
+  background: $color-background;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0 0 16px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.btn {
+  padding: 6px 14px;
+  border: 1px solid $color-primary;
+  border-radius: 4px;
+  background: $color-primary;
+  color: #fff;
+  cursor: pointer;
+
+  &.btn-secondary {
+    background: #fff;
+    color: $color-primary;
+  }
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+  max-width: 360px;
+
+  input {
+    padding: 6px 8px;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+  }
+
+  .error {
+    color: $color-error;
+    font-size: 12px;
+  }
+}
+
+table.data-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid $color-border;
+  }
+
+  th {
+    background: $color-surface;
+  }
+}

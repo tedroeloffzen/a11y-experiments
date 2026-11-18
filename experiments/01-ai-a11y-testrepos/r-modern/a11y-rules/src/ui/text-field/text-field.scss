@@ -1,0 +1,61 @@
+@use '../tokens' as *;
+
+.ui-field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  margin-bottom: $space-4;
+  max-width: 24rem;
+}
+
+.ui-field__label {
+  font-weight: 600;
+}
+
+.ui-field__required {
+  color: $color-error;
+  margin-left: $space-1;
+}
+
+.ui-field__hint {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+.ui-field__input {
+  min-height: 2.5rem;
+  padding: $space-2;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: $color-error;
+    border-width: 2px;
+  }
+}
+
+.ui-field__errors {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: $color-error;
+  font-size: $font-size-sm;
+}
+
+.ui-field__error-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  margin-right: $space-1;
+  border-radius: 50%;
+  background: $color-error;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.7rem;
+}

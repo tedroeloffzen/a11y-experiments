@@ -1,0 +1,14 @@
+<h1>Profiel</h1>
+
+<form [formRoot]="profielForm" (submit)="opslaan($event)" novalidate>
+  <ui-text-field label="Naam" [field]="profielForm.naam" autocomplete="name" />
+  <ui-text-field
+    label="E-mailadres"
+    type="email"
+    hint="We gebruiken dit adres voor meldingen over cijfers."
+    [field]="profielForm.email"
+    autocomplete="email"
+  />
+
+  <button class="ui-button" type="submit">Opslaan</button>
+</form>

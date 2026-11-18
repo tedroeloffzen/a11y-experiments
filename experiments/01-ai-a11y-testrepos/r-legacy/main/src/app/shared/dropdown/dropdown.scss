@@ -1,0 +1,39 @@
+@use '../../../styles/variables' as *;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+}
+
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.dropdown-item {
+  padding: 6px 8px;
+  cursor: pointer;
+
+  &:hover,
+  &.selected {
+    background: $color-surface;
+  }
+}

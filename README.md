@@ -24,4 +24,4 @@ Each experiment is self-contained and documents:
 
 | # | Experiment | Summary |
 |---|------------|---------|
-| – | _none yet_ | |
+| 01 | [AI & a11y testrepo's](experiments/01-ai-a11y-testrepos/) | Twee Angular-testapps (r-legacy, r-modern) om te meten hoe toegankelijk de code van Claude Code is, met en zonder regels/skill |

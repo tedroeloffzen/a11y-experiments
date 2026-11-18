@@ -1,0 +1,32 @@
+<h1>Leerlingen</h1>
+
+<div class="filters">
+  <ui-select label="Klas" [options]="klasOpties" [(value)]="klas" />
+</div>
+
+<table class="ui-table">
+  <caption>
+    Leerlingen ({{ leerlingen().length }})
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Naam</th>
+      <th scope="col">Klas</th>
+      <th scope="col">Gemiddelde</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (leerling of leerlingen(); track leerling.id) {
+      <tr>
+        <td>{{ leerling.naam }}</td>
+        <td>{{ leerling.klas }}</td>
+        <td>
+          {{ leerling.gemiddelde | number: '1.1-1' }}
+          @if (leerling.gemiddelde < 5.5) {
+            <span class="onvoldoende">(onvoldoende)</span>
+          }
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

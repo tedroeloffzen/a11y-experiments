@@ -1,0 +1,44 @@
+@use '../tokens' as *;
+
+.ui-dialog {
+  min-width: min(28rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: $space-6;
+  border-radius: $radius;
+  background: $color-background;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 25%);
+}
+
+.ui-dialog__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-4;
+  margin-bottom: $space-4;
+}
+
+.ui-dialog__title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.ui-dialog__close {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.ui-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-2;
+  margin-top: $space-6;
+}

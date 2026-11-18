@@ -1,0 +1,10 @@
+@use '../../../ui/tokens' as *;
+
+.filters {
+  margin-bottom: $space-6;
+}
+
+.onvoldoende {
+  color: $color-error;
+  font-size: $font-size-sm;
+}

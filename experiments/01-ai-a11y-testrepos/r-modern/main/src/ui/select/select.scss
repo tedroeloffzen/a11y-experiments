@@ -1,0 +1,68 @@
+@use '../tokens' as *;
+
+.ui-select {
+  display: inline-flex;
+  flex-direction: column;
+  gap: $space-1;
+  min-width: 14rem;
+}
+
+.ui-select__label {
+  font-weight: 600;
+}
+
+.ui-select__control {
+  position: relative;
+}
+
+.ui-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.5rem;
+  padding: $space-2;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius;
+  background: $color-background;
+  cursor: pointer;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.ui-select__listbox {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + #{$space-1});
+  left: 0;
+  right: 0;
+  padding: $space-1 0;
+  border: 1px solid $color-border-strong;
+  border-radius: $radius;
+  background: $color-background;
+}
+
+.ui-select__option {
+  min-height: 2rem;
+  padding: $space-2 $space-3;
+  cursor: pointer;
+
+  &[data-active='true'],
+  &:hover {
+    background: $color-surface;
+  }
+
+  &[aria-selected='true'] {
+    font-weight: 600;
+
+    &::before {
+      content: '✓ ';
+    }
+  }
+
+  &[aria-disabled='true'] {
+    color: $color-text-muted;
+    cursor: not-allowed;
+  }
+}

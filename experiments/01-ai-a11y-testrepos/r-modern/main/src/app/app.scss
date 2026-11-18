@@ -1,0 +1,50 @@
+@use '../ui/tokens' as *;
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-6;
+  padding: $space-3 $space-6;
+  background: $color-primary;
+  color: $color-primary-contrast;
+}
+
+.app-header__logo {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.app-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    color: $color-primary-contrast;
+    text-decoration: none;
+    padding: $space-1 0;
+
+    &:hover,
+    &.active {
+      text-decoration: underline;
+      text-underline-offset: 0.3em;
+    }
+
+    &:focus-visible {
+      outline: 3px solid $color-primary-contrast;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.app-main {
+  padding: $space-6;
+
+  &:focus {
+    outline: none; // alleen programmatisch focusbaar (skiplink)
+  }
+}

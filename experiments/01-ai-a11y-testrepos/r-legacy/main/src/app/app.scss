@@ -1,0 +1,30 @@
+@use '../styles/variables' as *;
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 12px 24px;
+  background: $color-primary;
+  color: #fff;
+
+  .logo {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 16px;
+    outline: none;
+
+    &.active {
+      border-bottom: 2px solid #fff;
+    }
+  }
+}
+
+.content {
+  padding: 24px;
+}

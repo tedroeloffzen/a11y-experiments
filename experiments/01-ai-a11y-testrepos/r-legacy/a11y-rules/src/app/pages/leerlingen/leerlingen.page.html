@@ -1,0 +1,27 @@
+<h1>Leerlingen</h1>
+
+<div class="filters">
+  <span class="filter-label">Klas</span>
+  <app-dropdown [options]="klasOpties" [(value)]="klas" />
+</div>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Naam</th>
+      <th>Klas</th>
+      <th>Gemiddelde</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (leerling of leerlingen(); track leerling.id) {
+      <tr>
+        <td>{{ leerling.naam }}</td>
+        <td>{{ leerling.klas }}</td>
+        <td [class.onvoldoende]="leerling.gemiddelde < 5.5">
+          {{ leerling.gemiddelde | number: '1.1-1' }}
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

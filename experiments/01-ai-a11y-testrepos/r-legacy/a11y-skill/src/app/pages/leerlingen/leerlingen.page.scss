@@ -1,0 +1,16 @@
+@use '../../../styles/variables' as *;
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-label {
+  color: $color-muted;
+}
+
+.onvoldoende {
+  color: $color-error;
+}

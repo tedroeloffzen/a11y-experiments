@@ -1,0 +1,80 @@
+// Globale stijlen van de component library. Importeren in src/styles.scss.
+@use 'tokens' as *;
+
+.ui-visually-hidden {
+  @include visually-hidden;
+}
+
+.ui-button {
+  min-height: 2.5rem;
+  padding: $space-2 $space-4;
+  border: 1px solid $color-primary;
+  border-radius: $radius;
+  background: $color-primary;
+  color: $color-primary-contrast;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &--secondary {
+    background: $color-background;
+    color: $color-primary;
+  }
+}
+
+.ui-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  caption {
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: $space-2;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: $space-2;
+    border-bottom: 1px solid $color-border;
+  }
+
+  th {
+    background: $color-surface;
+  }
+}
+
+.ui-skip-link {
+  @include visually-hidden;
+
+  &:focus {
+    position: fixed;
+    top: $space-2;
+    left: $space-2;
+    z-index: 1000;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: $space-2 $space-4;
+    clip: auto;
+    background: $color-background;
+    color: $color-primary;
+    @include focus-ring;
+  }
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgb(0 0 0 / 50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

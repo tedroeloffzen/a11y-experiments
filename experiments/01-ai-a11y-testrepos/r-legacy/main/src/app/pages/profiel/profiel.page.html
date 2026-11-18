@@ -1,0 +1,28 @@
+<h1>Profiel</h1>
+
+<form [formGroup]="form" (ngSubmit)="opslaan()">
+  <div class="form-row">
+    <label for="naam">Naam</label>
+    <input id="naam" type="text" formControlName="naam" />
+    @if (form.controls.naam.touched && form.controls.naam.hasError('required')) {
+      <span class="error">Naam is verplicht</span>
+    }
+  </div>
+
+  <div class="form-row">
+    <label for="email">E-mailadres</label>
+    <input id="email" type="text" formControlName="email" />
+    @if (form.controls.email.touched && form.controls.email.hasError('required')) {
+      <span class="error">E-mailadres is verplicht</span>
+    }
+    @if (form.controls.email.touched && form.controls.email.hasError('email')) {
+      <span class="error">Ongeldig e-mailadres</span>
+    }
+  </div>
+
+  <button class="btn" type="submit">Opslaan</button>
+
+  @if (opgeslagen()) {
+    <p>Profiel opgeslagen.</p>
+  }
+</form>
